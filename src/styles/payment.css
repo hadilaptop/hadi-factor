@@ -1,0 +1,436 @@
+/* ============================================================================
+   استایل‌های تکمیلی صفحه ثبت و ویرایش دریافتی (هماهنگ با account.css)
+   ============================================================================ */
+.payment-custom-card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+/* نمایش ساده نام مشتری (بدون کادر) */
+.payment-customer-single-name {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: right;
+  padding: 4px 0 10px 0;
+}
+/* ورودی‌های نسبی با آیکون یا پسوند */
+.payment-input-relative {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.payment-input-relative .account-input {
+  width: 100%;
+}
+.amount-highlight {
+  color: #a7f3d0;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+.payment-currency-tag {
+  position: absolute;
+  left: 20px;
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  pointer-events: none;
+}
+/* دکمه آیکون تقویم کنار تاریخ */
+.date-input-field {
+  padding-left: 60px;
+}
+.payment-calendar-trigger-btn {
+  position: absolute;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.payment-calendar-trigger-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
+}
+.payment-calendar-trigger-btn svg {
+  width: 22px;
+  height: 22px;
+}
+/* پیل‌های انتخاب روش دریافت */
+.payment-methods-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+.payment-pill-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #256b9c;
+  border: 1px solid #71a9cf;
+  color: #ffffff;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.payment-pill-btn:hover {
+  background: #3282b8;
+  border-color: #ffffff;
+}
+.payment-pill-btn.active {
+  background: linear-gradient(135deg, #00b894, #00bece);
+  border-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 184, 148, 0.4);
+  transform: translateY(-1px);
+}
+/* بخش اطلاعات چک */
+.payment-check-container {
+  background: rgba(13, 43, 67, 0.4);
+  border: 1.5px dashed #71a9cf;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 10px 0;
+}
+.payment-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+/* فایل پیوست */
+.payment-file-box-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+.payment-file-box {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 18px;
+  background: rgba(37, 107, 156, 0.4);
+  border: 1px dashed #71a9cf;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.payment-file-box:hover {
+  background: rgba(37, 107, 156, 0.75);
+  border-color: #ffffff;
+}
+.payment-file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.payment-file-label #upload-text-indicator {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+.payment-preview-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: #256b9c;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid #71a9cf;
+}
+.payment-preview-card img {
+  max-width: 100%;
+  max-height: 220px;
+  border-radius: 12px;
+  object-fit: contain;
+}
+.payment-remove-attach-btn {
+  background: #ef4444;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-family: inherit;
+  cursor: pointer;
+}
+/* دکمه ذخیره اصلی */
+.payment-submit-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0 15px;
+}
+.payment-save-btn {
+  background: linear-gradient(135deg, #00b894, #00bece);
+  box-shadow: 0 8px 20px rgba(0, 184, 148, 0.4);
+  color: #ffffff;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 900;
+  padding: 16px 40px;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 350px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.payment-save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0, 184, 148, 0.6);
+}
+/* ============================================================================
+   مودال تقویم شمسی (Jalali Picker Modal)
+   ============================================================================ */
+.jalali-picker-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 200000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  direction: rtl;
+  animation: jalaliOverlayFadeIn 0.5s ease forwards;
+}
+@keyframes jalaliOverlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.jalali-picker-modal {
+  background: #0f4c75;
+  border: 1px solid #71a9cf;
+  border-radius: 24px;
+  padding: 24px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: #ffffff;
+  animation: jalaliModalPopIn 0.3s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
+}
+@keyframes jalaliModalPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.jalali-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.jalali-picker-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+.jalali-picker-close {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.jalali-picker-selects {
+  display: flex;
+  gap: 10px;
+}
+.jalali-select {
+  flex: 1;
+  background: #3a83b7;
+  border: 1px solid #71a9cf;
+  color: #ffffff;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+}
+.jalali-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-left: 4px;
+}
+.jalali-day-btn {
+  background: #256b9c;
+  border: 1px solid #71a9cf;
+  color: #ffffff;
+  padding: 10px 0;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.jalali-day-btn:hover {
+  background: #00b894;
+  border-color: #ffffff;
+  transform: scale(1.08);
+}
+/* ============================================================================
+   استایل‌های لیست کشویی سفارشی برای موبایل
+   ============================================================================ */
+.custom-dropdown {
+  position: relative;
+  flex: 1;
+}
+.custom-dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #0f4c75;
+  border: 1px solid #71a9cf;
+  border-radius: 12px;
+  margin-top: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+/* اسکرول‌بار سفارشی برای لیست‌ها */
+.custom-dropdown-list::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-dropdown-list::-webkit-scrollbar-thumb {
+  background: #3a83b7;
+  border-radius: 10px;
+}
+.custom-dropdown-item {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(113, 169, 207, 0.3);
+  color: #ffffff;
+  padding: 12px;
+  text-align: center;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.custom-dropdown-item:last-child {
+  border-bottom: none;
+}
+.custom-dropdown-item:hover,
+.custom-dropdown-item:active {
+  background-color: #256b9c;
+}
+@media (max-width: 600px) {
+  .payment-custom-card {
+    padding: 16px 12px;
+  }
+  .payment-customer-single-name {
+    font-size: 1.5rem;
+    padding-bottom: 6px;
+  }
+  .payment-pill-btn {
+    padding: 8px 12px;
+    font-size: 0.92rem;
+  }
+  .payment-save-btn {
+    font-size: 1.1rem;
+    padding: 12px 24px;
+  }
+  .payment-calendar-trigger-btn {
+    width: 36px;
+    height: 36px;
+    left: 8px;
+  }
+  .payment-file-box {
+  width: 120px;
+  height: 120px;
+}
+.payment-file-label #upload-text-indicator {
+  font-size: 0.8rem;
+}
+}
+.custom-alert-overlay { display: flex !important; }
+.jalali-week-day {
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+.jalali-week-day.is-friday {
+  color: #ff6b6b;
+}
+.jalali-empty-day {
+  background: transparent;
+}
+.jalali-day-btn.is-friday-btn {
+  color: #ff6b6b;
+}
+.jalali-day-btn.is-friday-btn:hover {
+  background: #ff6b6b;
+  color: #ffffff;
+  border-color: #ff6b6b;
+}
+
+.jalali-day-btn.is-today-btn {
+  background: #059669; /* Green color for today */
+  color: #ffffff;
+  border-color: #059669;
+  box-shadow: 0 0 10px rgba(5, 150, 105, 0.5);
+}
+.jalali-day-btn.is-today-btn:hover {
+  background: #047857;
+  color: #ffffff;
+  border-color: #047857;
+}

@@ -1,0 +1,761 @@
+/* =========================================
+   انیمیشن‌ها (Keyframes)
+   ========================================= */
+@keyframes nativePageCustomers {
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes dropdownOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+@keyframes scaleUp {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes modalScaleUp {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* =========================================
+   ۱. لایه‌های اصلی و کانتینرها
+   ========================================= */
+.modal-overlay {
+    display: flex;
+}
+.customers-modal-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0;
+    background: #eaf6fc;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    align-items: stretch;
+    border-radius: 0;
+    z-index: 9999;
+}
+/* =========================================
+   ۲. هدر (Header)
+   ========================================= */
+.customers-top-header {
+    background: linear-gradient(135deg, #0d2b43, #0f4c75);
+    padding: 140px 40px 40px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 50px 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    z-index: 10;
+    position: relative;
+}
+.customers-title {
+    margin: 0;
+    font-size: 3.8rem;
+    font-weight: 900;
+    color: #ffffff;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+.customers-header-buttons {
+    display: flex;
+    gap: 10px;
+}
+.customers-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: none;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+.customers-btn svg {
+    width: 55px;
+    height: 55px;
+}
+.customers-btn:hover {
+    transform: scale(1.05);
+}
+/* =========================================
+   ۳. جستجو (Search)
+   ========================================= */
+.customers-search-container {
+    padding: 0 40px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    flex-shrink: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+.customers-search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.customers-search-icon {
+    position: absolute;
+    right: 25px;
+    color: #0f4c75;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#customersSearchInput,
+.customers-search-input {
+    width: 100%;
+    padding: 22px 70px 22px 55px;
+    border-radius: 30px;
+    border: 2px solid #b3d4e6;
+    background: #ffffff;
+    color: #0d2b43;
+    font-size: 2.2rem;
+    font-weight: 800;
+    box-shadow: 0 10px 25px rgba(13, 43, 67, 0.08);
+    font-family: inherit;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+}
+#customersSearchInput::placeholder,
+.customers-search-input::placeholder {
+    color: #8da4b5;
+    font-weight: 600;
+}
+#customersSearchInput:focus,
+.customers-search-input:focus {
+    border-color: #0f4c75;
+    box-shadow: 0 10px 30px rgba(15, 76, 117, 0.2);
+    background: #ffffff;
+}
+.customers-search-clear {
+    position: absolute;
+    left: 20px;
+    background: #eaf6fc;
+    border: 1px solid #b3d4e6;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f4c75;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.customers-search-clear:hover {
+    background: #0f4c75;
+    color: #ffffff;
+    border-color: #0f4c75;
+}
+@keyframes customerDropdownScaleIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.82);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/* =========================================
+   ۴. لیست مشتریان (Customers List)
+   ========================================= */
+.customers-list {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    will-change: opacity, transform;
+    animation: nativePageCustomers 0.25s ease-out forwards;
+    -webkit-overflow-scrolling: touch;
+}
+.customers-table-container {
+    padding: 0 40px 100px 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.customer-item-wrapper {
+    position: relative;
+    width: 100%;
+}
+.customers-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 10px 0 100px 0;
+    width: 100%;
+}
+.customers-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #0f4c75, #3282b8);
+    color: white;
+    padding: 35px 30px;
+    border-radius: 35px;
+    box-shadow: 0 10px 20px rgba(59, 89, 152, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.2s;
+ cursor: pointer !important; }
+.customers-list-item:active:not(:has(.customers-item-actions:active)):not(:has(.customer-dropdown-menu:active)) {
+    transform: scale(0.98);
+}
+.customers-item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+    padding: 0 25px;
+    text-align: right;
+}
+.customers-item-name {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.2;
+}
+.customers-item-code {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+}
+.customers-item-avatar {
+    width: 95px;
+    height: 95px;
+    min-width: 95px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #ffffff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-shrink: 0;
+    font-size: 4rem;
+}
+.customers-dots {
+    padding: 0;
+    line-height: 1;
+}
+/* =========================================
+   ۵. عملیات و سه‌نقطه (Actions)
+   ========================================= */
+.customers-item-actions {
+    position: relative;
+    cursor: pointer;
+    font-size: 3.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+.customers-item-actions:hover,
+.customers-item-actions.active {
+    background: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+}
+/* =========================================
+   ۶. منوهای بازشو (Dropdowns)
+   ========================================= */
+.customers-dropdown button {
+    background: transparent;
+    border: none;
+    padding: 15px 20px;
+    text-align: right;
+    font-family: inherit;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #eaf6fc;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.customers-dropdown button:last-child {
+    border-bottom: none;
+}
+.customers-dropdown button:active {
+    background: rgba(255, 255, 255, 0.1);
+}
+.customers-dropdown button.delete-btn {
+    color: #ff6b6b;
+}
+/* دراپ‌داون نوع دوم (آیتم‌دار) */
+.customer-dropdown-menu {
+    position: absolute;
+    top: 50%;
+    left: 110px;
+    background: linear-gradient(135deg, #0d2b43, #0f4c75);
+    border: 2px solid #e2e5e8;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    min-width: 230px;
+    overflow: hidden;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    transform-origin: top left;
+    animation: customerDropdownScaleIn 0.3s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
+}
+.customer-dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 22px;
+    width: 100%;
+    padding: 14px 20px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.customer-dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+.customer-dropdown-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: -1;
+}
+.customer-dropdown-icon svg {
+    width: 30px;
+    height: 30px;
+}
+.customer-dropdown-edit {
+    border-bottom: 1px solid #778ca1;
+}
+.customer-dropdown-delete {
+    color: #ff5c5c;
+}
+/* =========================================
+   ۷. مُدال‌ها و آلرت‌های حذف (Modals & Alerts)
+   ========================================= */
+/* استایل پاپ‌آپ تایید (نوع اول) */
+.custom-confirm-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 999999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.custom-confirm-box {
+    max-width: 720px;
+    width: 100%;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #0d2b43, #0f4c75);
+    color: #fff;
+    text-align: center;
+    border: 1px solid #adc7d8;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    animation: scaleUp 0.2s ease-out;
+    padding: 35px;
+}
+.custom-confirm-icon-bg {
+    background: rgba(220, 38, 38, 0.15);
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+.custom-confirm-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0 0 12px 0;
+    color: #ffffff;
+}
+.custom-confirm-text {
+    font-size: 2rem;
+    color: #b3d4e6;
+    margin: 0 0 35px 0;
+    line-height: 1.8;
+    padding: 0 10px;
+}
+.custom-confirm-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+.custom-confirm-btn {
+    flex: 1;
+    padding: 16px;
+    font-size: 2rem;
+    border: none;
+    border-radius: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+}
+.custom-confirm-btn-cancel {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+.custom-confirm-btn-cancel:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+.custom-confirm-btn-danger {
+    background: #dc2626;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+}
+.custom-confirm-btn-danger:active {
+    background: #b91c1c;
+}
+/* استایل پاپ‌آپ مشتری (نوع دوم) */
+.customer-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px);
+}
+.customer-modal-box {
+    background: linear-gradient(135deg, #0d2b43, #0f4c75);
+    border: 1px solid #2e557c;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: modalScaleUp 0.3s ease-out forwards;
+}
+.customer-modal-icon-bg {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 92, 92, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+.customer-modal-title {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+}
+.customer-modal-text {
+    color: #aab7c8;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin: 0 0 30px 0;
+    font-weight: 700;
+}
+.customer-modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+.customer-modal-btn {
+    flex: 1;
+    padding: 14px 0;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.customer-btn-cancel {
+    background-color: transparent;
+    color: #dee1e4;
+    border: 2px solid #2e557c;
+}
+.customer-btn-cancel:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+.customer-btn-danger {
+    background-color: #ff5c5c;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(255, 92, 92, 0.3);
+}
+.customer-btn-danger:hover {
+    background-color: #ff4242;
+}
+.customer-modal-btn:active {
+    transform: scale(0.96);
+}
+.customer-modal-svg {
+    width: 40px;
+    height: 40px;
+    stroke-width: 2.5px;
+}
+/* =========================================
+   ۸. طراحی واکنش‌گرا (Responsive Media Queries)
+   ========================================= */
+@media (max-width: 600px) {
+    .customers-top-header {
+        padding: 12px 20px;
+        padding-top: calc(12px + env(safe-area-inset-top, 25px));
+        padding-bottom: 14px;
+        min-height: calc(85px + env(safe-area-inset-top, 25px));
+        height: auto;
+        border-radius: 0 0 20px 20px;
+        box-sizing: border-box;
+    }
+    .customers-title {
+        font-size: 1.2rem;
+        line-height: 1.35;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+    .customers-btn {
+        width: 38px;
+        height: 38px;
+    }
+    .customers-btn svg {
+        width: 25px;
+        height: 25px;
+    }
+    .customers-search-container {
+        padding: 0 20px;
+        margin-bottom: 8px;
+    }
+    #customersSearchInput,
+    .customers-search-input {
+        padding: 12px 45px 12px 35px;
+        font-size: 1rem;
+        border-radius: 15px;
+    }
+    .customers-search-icon {
+        right: 12px;
+    }
+    .customers-search-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    .customers-search-clear {
+        left: 10px;
+        width: 26px;
+        height: 26px;
+        font-size: 1.1rem;
+    }
+    .customers-table-container {
+        padding: 0 20px 100px 20px;
+    }
+    .customers-card-list {
+        gap: 10px;
+        padding-bottom: 100px;
+    }
+    .customers-list-item {
+        padding: 15px;
+        border-radius: 15px;
+    }
+    .customers-item-info {
+        padding: 0 12px;
+        gap: 2px;
+    }
+    .customers-item-name {
+        font-size: 1.15rem;
+        padding: 0;
+    }
+    .customers-item-code {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    .customers-item-avatar {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 1.5rem;
+        border-width: 2px;
+    }
+    .customers-item-actions {
+        font-size: 1.8rem;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+    }
+    .customers-dropdown {
+        min-width: 150px;
+        left: 20px;
+        border-radius: 10px;
+    }
+    .customers-dropdown button {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+    .custom-confirm-box {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    .custom-confirm-icon-bg {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+    .custom-confirm-icon-bg svg {
+        width: 24px;
+        height: 24px;
+    }
+    .custom-confirm-title {
+        font-size: 1.2rem;
+    }
+    .custom-confirm-text {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+    .custom-confirm-btn {
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+    .customer-dropdown-menu {
+        top: -10%;
+        left: 50px;
+        min-width: 160px;
+        border: 1px solid #e2e5e8;
+        border-radius: 10px;
+        transform-origin: top left;
+        animation: customerDropdownScaleIn 0.3s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
+    }
+    .customer-dropdown-item {
+        font-size: 1rem;
+        font-weight: 900;
+        padding: 10px 10px;
+    }
+    .customer-dropdown-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    .customer-modal-box {
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.801);
+        border-radius: 15px;
+        width: 80%;
+        padding: 30px 20px;
+    }
+    .customer-modal-icon-bg {
+        width: 50px;
+        height: 50px;
+    }
+    .customer-modal-title {
+        font-size: 1.2rem;
+    }
+    .customer-modal-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 0 0 30px 0;
+        font-weight: 700;
+    }
+    .customer-modal-actions {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+    }
+    .customer-modal-btn {
+        font-size: 1rem;
+        padding: 5px 0;
+        border-radius: 7px;
+    }
+    .customer-modal-svg {
+        width: 30px;
+        height: 30px;
+        stroke-width: 1px;
+    }
+}
+/* ==================== Native CSS Animations ==================== */
+@keyframes customersTableEntry {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.customers-table-container {
+    animation: customersTableEntry 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.customers-list-wrapper {
+  position: relative;
+}
+
+.customer-avatar-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.customers-empty-msg { text-align: center; padding: 40px 20px; color: #0f4c75; font-size: 1.8rem; font-weight: 700; }

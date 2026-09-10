@@ -1,0 +1,1477 @@
+/* src/styles/customer-ledger.css */
+/* ========================================================
+   پایه و کانتینر اصلی
+=========================================================== */
+.ledger-modal-wrapper {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: #eaf6fc;
+}
+
+@keyframes nativePageLedger {
+  0% {
+    transform: translateX(-300px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.ledger-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #eaf6fc;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  direction: rtl;
+  font-family: inherit;
+}
+
+.ledger-container {
+  padding: 10px 24px 20px 24px;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  animation: nativePageLedger 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  text-align: center;
+}
+
+/* ========================================================
+   هدر (Header)
+=========================================================== */
+.ledger-top-header {
+  background: linear-gradient(135deg, #0d2b43, #0f4c75);
+  padding: 140px 40px 40px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 50px 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  z-index: 10;
+  position: relative;
+  border-bottom: 1px solid #2e557c;
+  box-sizing: border-box;
+}
+
+.ledger-main-title {
+  margin: 0;
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: #ffffff;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.ledger-header-buttons {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0px !important;
+}
+
+.ledger-header-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: none;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.ledger-header-btn svg {
+  width: 55px;
+  height: 55px;
+}
+
+.ledger-header-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ========================================================
+   نوار فیلتر و مرتب‌سازی
+=========================================================== */
+.ledger-filter-bar {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #3282b8, #0f4c75);
+  border: 1px solid #2e557c;
+}
+
+.ledger-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1;
+}
+
+.ledger-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.ledger-tab-btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-size: 0.95rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.ledger-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.ledger-tab-btn.active {
+  background: #10b981;
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.ledger-filter-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.ledger-sort-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.ledger-sort-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+/* ========================================================
+   کارت‌های تراکنش و لیست
+=========================================================== */
+.ledger-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ledger-empty-msg {
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 18px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  background: #1b6ca8;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  color: #e2e8f0;
+}
+
+.ledger-items-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.ledger-item-card {
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  background: linear-gradient(135deg, #0f4c75, #3282b8);
+  border: .9px solid #09bcbc;
+}
+
+.ledger-item-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.ledger-card-main-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 0;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 0;
+  transition: background-color 0.2s ease;
+}
+
+.ledger-card-main-row:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.ledger-card-content-area {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex: 1;
+  gap: 12px;
+  min-width: 0;
+}
+
+.ledger-card-info-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.ledger-card-date-col {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.ledger-card-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 35px;
+  padding: 0px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: .9px solid #a1bece;
+}
+
+.ledger-card-type-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 4px;
+  min-width: 0;
+}
+
+.item-badge-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.item-type-badge {
+  font-size: .85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  border-radius: 10px;
+  width: 120px;
+  height: 35px;
+}
+
+.badge-invoice {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.badge-payment {
+  display: flex;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  width: 120px;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border: .9px solid #52dc45;
+  height: 35px;
+  padding: 0px 10px;
+}
+
+.badge-proforma {
+  background: #fffcee;
+  color: #3e3b04;
+}
+
+.non-binding-tag {
+  font-size: 0.75rem;
+  background: #fef3c7;
+  color: #92400e;
+  padding: 0px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 25px;
+}
+
+.ledger-card-amount-col {
+  flex-shrink: 0;
+  text-align: left;
+}
+
+.ledger-card-amount-val {
+  font-size: 1.1rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.ledger-card-amount-val.val-debt {
+  color: #fca5a5;
+}
+
+.ledger-card-amount-val.val-credit {
+  color: #6ee7b7;
+}
+
+.ledger-card-amount-val.val-zero {
+  color: #93c5fd;
+}
+
+.amount-currency,
+.amount-label,
+.thumbnail-title,
+.item-details {
+  color: #cbd5e1;
+  font-weight: 700;
+  font-size: 0.82rem;
+  margin-right: 3px;
+}
+
+/* ========================================================
+   منوی عملیات (سه نقطه و کشویی)
+=========================================================== */
+.ledger-card-actions-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.ledger-menu-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ledger-menu-trigger {
+  border: none;
+  width: 24px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  color: #cbd5e1;
+}
+
+.ledger-menu-trigger:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.ledger-action-menu {
+  position: absolute;
+  top: 50%;
+  left: 110px;
+  background: linear-gradient(135deg, #0d2b43, #0f4c75);
+  border: 2px solid #e2e5e8;
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  min-width: 230px;
+  overflow: hidden;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  transform-origin: top right;
+  animation: dropdownFadeIn 0.3s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
+}
+
+@keyframes dropdownFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.82);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ledger-action-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 100%;
+  padding: 14px 20px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.ledger-action-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.ledger-action-edit {
+  border-bottom: 1px solid #778ca1;
+}
+
+.ledger-action-delete {
+  color: #ff5c5c;
+}
+
+.ledger-action-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: -1;
+}
+
+.ledger-action-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.ledger-accordion-arrow {
+  background: transparent;
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #cbd5e1;
+}
+
+.ledger-accordion-arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.ledger-dots {
+  font-size: 2rem;
+  line-height: 1;
+  color: #cbd5e1;
+}
+
+.arrow-icon {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.arrow-icon.expanded {
+  transform: rotate(180deg);
+}
+
+/* ========================================================
+   بخش کشویی داخل کارت (Accordion Details)
+=========================================================== */
+.ledger-card-expandable-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease,
+    margin-top 0.3s ease,
+    padding-top 0.3s ease;
+  opacity: 0;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 1px dashed transparent;
+}
+
+.ledger-item-card.is-expanded .ledger-card-expandable-body {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.expandable-body-inner {
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.check-details-box,
+.payment-details-box,
+.note-row,
+.balance-line {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+}
+
+.payment-amount-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #f1f5f9;
+}
+
+.payment-amount-val {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #38ef7d;
+}
+
+.check-sub-details {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+}
+
+.item-detail-row {
+  line-height: 1.5;
+  color: #cbd5e1;
+  font-size: 0.82rem !important;
+  opacity: 0.7 !important;
+}
+
+.balance-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+}
+
+.balance-val {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.attachment-thumbnail-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.attachment-thumbnail-box {
+  max-width: 180px;
+  max-height: 140px;
+  border-radius: 10px;
+  border: 2px solid #2e557c;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attachment-thumbnail-box:hover {
+  transform: scale(1.05);
+  border-color: #3b82f6;
+}
+
+.attachment-thumb-img {
+  max-width: 100%;
+  max-height: 140px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.thumb-zoom-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.4);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.attachment-thumbnail-box:hover .thumb-zoom-overlay {
+  opacity: 1;
+}
+
+/* ========================================================
+   نوار دکمه‌های پایین (Bottom Bar)
+=========================================================== */
+.ledger-fixed-bottom-bar {
+  background: #0d2b43;
+  border-top: 1px solid #2e557c;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.ledger-bottom-btn {
+  flex: 1;
+  max-width: 280px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.ledger-btn-add-payment {
+  background: #10b981;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+}
+
+.ledger-btn-add-payment:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4);
+}
+
+.ledger-btn-create-invoice {
+  background: #0f4c75;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(15, 76, 117, 0.3);
+  border: 1px solid #2e557c;
+}
+
+.ledger-btn-create-invoice:hover {
+  background: #1b6ca8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(15, 76, 117, 0.4);
+}
+
+/* ========================================================
+   مودال‌ها، آلرت‌ها و فرم پرداخت
+=========================================================== */
+.ledger-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: overlayFadeIn 0.25s ease forwards;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* آلرت حذف و غیره */
+.ledger-alert-box {
+  background: linear-gradient(135deg, #0d2b43, #0f4c75);
+  border: 1px solid #e2e5e8;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 420px;
+  padding: 30px 24px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  animation: modalScaleUp 0.3s ease-out forwards;
+  direction: rtl;
+}
+
+.ledger-alert-icon-bg {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(255, 92, 92, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.ledger-alert-svg {
+  width: 40px;
+  height: 40px;
+  stroke-width: 2.5px;
+}
+
+.ledger-alert-title {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+.ledger-alert-text {
+  color: #aab7c8;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+  font-weight: 700;
+}
+
+.ledger-alert-actions,
+.ledger-modal-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.ledger-alert-btn,
+.ledger-modal-btn {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ledger-btn-cancel {
+  background-color: transparent;
+  color: #dee1e4;
+  border: 2px solid #2e557c;
+}
+
+.ledger-btn-cancel:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.ledger-btn-danger {
+  background-color: #ff5c5c;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 92, 92, 0.3);
+}
+
+.ledger-btn-danger:hover {
+  background-color: #ff4242;
+}
+
+.ledger-btn-primary {
+  background-color: #10b981;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.ledger-btn-primary:hover {
+  background-color: #059669;
+}
+
+/* فرم ثبت دریافتی */
+.ledger-payment-modal {
+  background: linear-gradient(135deg, #0d2b43, #0f4c75);
+  border: 1px solid #2e557c;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  direction: rtl;
+  position: relative;
+  box-sizing: border-box;
+  animation: modalScaleUp 0.25s ease forwards;
+  margin: auto;
+}
+
+.ledger-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ledger-modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.modal-close-icon {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.ledger-payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.form-group label {
+  color: #cbd5e1;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.85rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.form-input:focus {
+  border-color: #3b82f6;
+}
+
+.form-input::placeholder {
+  color: #94a3b8;
+}
+
+.payment-methods-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.method-pill {
+  flex: 1;
+  min-width: 90px;
+  padding: 10px 8px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
+}
+
+.method-pill.active {
+  background: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+}
+
+.check-form-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.file-upload-dropzone {
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.file-upload-dropzone:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+.file-upload-label {
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+.attachment-preview-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.attachment-preview-box img {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.remove-att-btn {
+  background: #ef4444;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* لایت‌باکس عکس */
+.lightbox-box {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: modalScaleUp 0.5s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
+}
+
+.lightbox-box img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 16px;
+  object-fit: contain;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: -45px;
+  left: 0;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* انیمیشن باز شدن مودال */
+@keyframes modalScaleUp {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ========================================================
+   پاسخگویی موبایل (Responsive)
+=========================================================== */
+@media (max-width: 900px) {
+  .ledger-top-header {
+    padding: 12px 16px;
+    padding-top: calc(12px + env(safe-area-inset-top, 25px));
+    padding-bottom: 14px;
+    min-height: calc(85px + env(safe-area-inset-top, 25px));
+    height: auto;
+    border-radius: 0 0 20px 20px;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .ledger-main-title {
+    font-size: 1rem;
+    line-height: 1.35;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .ledger-header-btn {
+    width: 45px;
+    height: 45px;
+  }
+
+  .ledger-header-btn svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .ledger-container {
+    padding: 10px 14px 300px 14px;
+  }
+
+  .ledger-card-main-row {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .ledger-card-content-area {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .ledger-card-info-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 6px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .ledger-card-actions-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    padding: 0 2px;
+  }
+
+  .ledger-card-amount-col {
+    width: auto;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 2px;
+    padding-right: 2px;
+  }
+
+  .ledger-action-menu {
+    top: -10%;
+    left: 50px;
+    min-width: 160px;
+    border: 1px solid #e2e5e8;
+    border-radius: 10px;
+  }
+
+  .ledger-action-item {
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 10px 10px;
+    gap: 10px;
+  }
+
+  .ledger-action-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ledger-alert-box {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.801);
+    border-radius: 15px;
+    width: 80%;
+    padding: 30px 20px;
+  }
+
+  .ledger-alert-icon-bg {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+  }
+
+  .ledger-alert-svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .ledger-alert-title {
+    font-size: 1.2rem;
+  }
+
+  .ledger-alert-text {
+    font-size: 0.85rem;
+  }
+
+  .ledger-alert-btn,
+  .ledger-modal-btn {
+    font-size: 0.85rem;
+    padding: 10px 0;
+  }
+}
+
+/* استایل عکس جایگزین شده در هدر */
+.ledger-header-btn .custom-money-icon {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  /* این فیلتر باعث می‌شود خطوط مشکی عکس به رنگ سفید در بیایند تا با بقیه آیکون‌ها هماهنگ شود */
+  filter: invert(1) brightness(100);
+}
+
+@media (max-width: 900px) {
+  .ledger-header-btn .custom-money-icon {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* استایل حالت درحال بارگیری داده‌ها */
+.ledger-loading-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  gap: 15px;
+}
+
+.ledger-loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #38ef7d;
+  border-radius: 50%;
+  animation: ledgerSpinnerSpin 0.8s linear infinite;
+}
+
+@keyframes ledgerSpinnerSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ledger-card-invoice-number {
+  width: 100px;
+  height: 25px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+}
+
+.ledger-mini-invoice {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.ledger-mini-invoice .mini-invoice-header {
+  display: flex;
+  background: #f1f5f9;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #475569;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ledger-mini-invoice .mini-invoice-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.ledger-mini-invoice .mini-invoice-row {
+  display: flex;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  color: #334155;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.ledger-mini-invoice .mini-invoice-row:last-child {
+  border-bottom: none;
+}
+
+.ledger-mini-invoice .col-desc {
+  flex: 1;
+  text-align: right;
+  padding-left: 8px;
+}
+
+.ledger-mini-invoice .col-qty {
+  width: 50px;
+  text-align: center;
+}
+
+.ledger-mini-invoice .col-price {
+  width: 100px;
+  text-align: left;
+}
+
+.ledger-mini-invoice .mini-invoice-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-top: 1px solid #bae6fd;
+}
+
+.ledger-all-filter-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: linear-gradient(135deg, #0d2b43, #0f4c75);
+  border: 1px solid #a2c8e2;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  padding: 8px;
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  top: calc(100% + 8px) !important;
+  right: 12px !important;
+  min-width: 190px !important;
+  z-index: 999999 !important;
+  position: absolute !important;
+}
+
+.ledger-all-filter-option {
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  user-select: none;
+  height: 47px;
+}
+
+.ledger-all-filter-option.is-selected {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.option-checkmark {
+  font-weight: bold;
+  color: #10b981;
+  font-size: 1rem;
+}
+
+.ledger-statement-fixed-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 50;
+  transition: all 0.2s ease;
+}
+
+.ledger-statement-fixed-btn:hover {
+  background: #1e293b;
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.ledger-statement-fixed-btn:active {
+  transform: translateX(-50%) translateY(0);
+}
+
+.filter-arrow-icon {
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+
+.filter-arrow-icon.is-rotated {
+  transform: rotate(180deg);
+}
+
+.ledger-top-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0px;
+}
+
+.ledger-top-header-subtitle {
+  font-size: 0.85rem;
+  color: #ffffff;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.ledger-tab-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  position: relative;
+}
+
+.ledger-not-found-msg {
+  color: #0d2b43;
+  font-weight: 800;
+}
