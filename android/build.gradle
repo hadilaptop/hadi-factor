@@ -5,7 +5,8 @@ buildscript {
         maven { url 'https://maven.aliyun.com/repository/public' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.1'
+        // این خط ارتقا پیدا کرد تا خطاهای مربوط به متادیتا برطرف شود
+        classpath 'com.android.tools.build:gradle:8.9.1'
         classpath 'com.google.gms:google-services:4.4.2'
     }
 }
