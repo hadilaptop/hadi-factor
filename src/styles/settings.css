@@ -6,11 +6,13 @@
         opacity: 1;
         transform: scale(0.5);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
     }
 }
+
 .settings-page-overlay {
     position: fixed;
     top: 0;
@@ -23,6 +25,7 @@
     direction: rtl;
     z-index: 100000;
 }
+
 .settings-page-wrapper {
     display: flex;
     flex-direction: column;
@@ -30,6 +33,7 @@
     height: 100%;
     overflow: hidden;
 }
+
 /* --- هدر صفحه --- */
 .settings-top-header {
     background: linear-gradient(135deg, #0d2b43, #0f4c75);
@@ -43,17 +47,20 @@
     z-index: 10;
     position: relative;
 }
+
 .settings-title {
     margin: 0;
     font-size: 3.8rem;
     font-weight: 900;
     color: #ffffff;
 }
+
 .settings-header-buttons {
     display: flex;
     align-items: center;
     gap: 10px;
 }
+
 .settings-back-btn {
     background: rgba(255, 255, 255, 0.15);
     color: #ffffff;
@@ -68,13 +75,16 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: 0.2s;
 }
+
 .settings-back-btn svg {
     width: 55px;
     height: 55px;
 }
+
 .settings-back-btn:hover {
     transform: scale(1.05);
 }
+
 /* --- کانتینر محتوا (ایجاد فاصله هماهنگ بین ۳ کارت) --- */
 .settings-page-content {
     flex: 1;
@@ -87,6 +97,7 @@
     /* فاصله هوشمند بین بخش‌ها */
     animation: nativePageSettings 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
 /* --- استایل مشترک کارت‌های فرم (تم و مشخصات شرکت) --- */
 .settings-form-card {
     width: 100%;
@@ -98,10 +109,12 @@
     border: 1px solid #a2c8e2;
     box-sizing: border-box;
 }
+
 /* --- فیلدهای ورودی --- */
 .settings-input-group {
     padding: 15px 20px;
 }
+
 .settings-input-group label {
     display: block;
     margin-bottom: 20px;
@@ -111,6 +124,7 @@
     text-align: right;
     padding: 0 20px;
 }
+
 .settings-input {
     width: 100%;
     padding: 25px 25px;
@@ -122,16 +136,21 @@
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.1);
     color: #ffffff;
- text-align: right !important;  text-align: right !important; }
+    text-align: right !important;
+    text-align: right !important;
+}
+
 .settings-input:focus {
     border-color: #ffffff;
     background: rgba(20, 58, 123, 0.2);
     outline: none;
     box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
 }
+
 .settings-input::placeholder {
     color: #b3d4e6;
 }
+
 /* --- انتخاب‌گر تم رنگی فاکتور --- */
 .theme-selector {
     display: flex;
@@ -140,6 +159,7 @@
     padding: 10px;
     flex-wrap: wrap;
 }
+
 .theme-btn {
     width: 60px;
     height: 60px;
@@ -148,45 +168,56 @@
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .theme-btn:hover {
     transform: scale(1.1);
 }
+
 .theme-btn.active {
     border-color: #ffffff;
     transform: scale(1.1);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
+
 .theme-btn.gold {
     background: #7e5108;
 }
+
 .theme-btn.blue {
     background: #0f4c75;
 }
+
 .theme-btn.red {
     background: #a10000;
 }
+
 .theme-btn.green {
     background: #127547;
 }
+
 .theme-btn.teal {
     background: #13899d;
 }
+
 /* ============================================================================
                استایل‌های بخش آپلود لوگو (دقیقاً مشابه صفحه اکانت)
 ============================================================================ */
 .settings-hidden-file-input {
     display: none;
 }
+
 .logo-upload-group {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .logo-upload-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .settings-custom-file-upload {
     display: flex !important;
     align-items: center;
@@ -204,13 +235,16 @@
     position: relative;
     overflow: hidden;
 }
+
 .settings-custom-file-upload:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: #ffffff;
 }
+
 #setting-upload-text-indicator {
     font-size: 2rem;
 }
+
 #setting-logo-preview-img {
     position: absolute;
     top: 0;
@@ -221,6 +255,7 @@
     z-index: 1;
     border-radius: 18px;
 }
+
 /* ============================================================================
                باکس دکمه‌ها (طراحی فوق‌العاده جمع‌وجور، شیک و فلت)
 ============================================================================ */
@@ -238,6 +273,7 @@
     gap: 12px;
     box-sizing: border-box;
 }
+
 /* استایل دکمه‌ها با سایز فشرده و بهینه شده */
 .settings-btn-save,
 .settings-btn-reset,
@@ -259,6 +295,7 @@
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
+
 /* افکت هاور دکمه‌ها */
 .settings-btn-save:hover,
 .settings-btn-reset:hover,
@@ -266,6 +303,7 @@
     transform: translateY(-3px);
     filter: brightness(1.1);
 }
+
 /* افکت کلیک شدن دکمه (Active) */
 .settings-btn-save:active,
 .settings-btn-reset:active,
@@ -273,25 +311,32 @@
     transform: translateY(1px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 /* رنگ‌بندی دکمه‌ها */
 .settings-btn-save {
     background: linear-gradient(135deg, #10b981, #059669);
 }
+
 .settings-btn-save:hover {
     box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
 }
+
 .settings-btn-reset {
     background: linear-gradient(135deg, #f59e0b, #d97706);
 }
+
 .settings-btn-reset:hover {
     box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
 }
+
 .settings-btn-cancel {
     background: linear-gradient(135deg, #64748b, #475569);
 }
+
 .settings-btn-cancel:hover {
     box-shadow: 0 6px 20px rgba(100, 116, 139, 0.35);
 }
+
 /* ============================================================================
                           استایل‌های ریسپانسیو موبایل
 ============================================================================ */
@@ -305,63 +350,76 @@
         border-radius: 0 0 20px 20px;
         box-sizing: border-box;
     }
+
     .settings-title {
         font-size: 1.2rem;
         line-height: 1.35;
         word-break: break-word;
         overflow-wrap: anywhere;
     }
+
     .settings-back-btn {
-        width: 38px;
-        height: 38px;
+        width: 45px;
+        height: 45px;
     }
+
     .settings-back-btn svg {
         width: 25px;
         height: 25px;
     }
+
     .settings-page-content {
         padding: 15px 15px 180px 15px;
         gap: 15px;
     }
+
     .settings-form-card {
         padding: 20px;
         border-radius: 20px;
         margin-top: 5px;
     }
+
     .settings-input-group {
         padding: 10px;
     }
+
     .settings-input-group label {
         font-size: 1rem;
         margin-bottom: 10px;
         padding: 0 10px;
     }
+
     .settings-input {
         padding: 12px 15px;
         font-size: 0.8rem;
         border-radius: 12px;
         border-width: 1.5px;
     }
+
     .theme-selector {
         flex-wrap: nowrap;
         gap: 10px;
         justify-content: center;
         padding: 5px 0;
     }
+
     .theme-btn {
         width: 35px;
         height: 35px;
         border-width: 2px;
         flex-shrink: 0;
     }
+
     /* ریسپانسیو بخش آپلود لوگو */
     .settings-custom-file-upload {
         height: 120px;
         width: 120px;
     }
+
     #setting-upload-text-indicator {
         font-size: .8rem;
     }
+
     /* =========================================
        ریسپانسیو دکمه‌های موبایل (چیدمان هوشمند و فشرده در یک سطر) 
        ========================================= */
@@ -375,6 +433,7 @@
         width: 100%;
         box-sizing: border-box;
     }
+
     .settings-btn-save,
     .settings-btn-reset {
         flex: 1;
@@ -388,4 +447,6 @@
     }
 }
 
-.settings-logo-preview-img { display: block; }
+.settings-logo-preview-img {
+    display: block;
+}

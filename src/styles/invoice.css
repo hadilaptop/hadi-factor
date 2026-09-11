@@ -10,6 +10,7 @@
     --text-highlight: #0a2c43;
     --border-color: #3282b8;
 }
+
 /* تم طلایی */
 [data-theme="gold"] {
     --primary-dark: #7e5108;
@@ -22,6 +23,7 @@
     --text-highlight: #5b2e01;
     --border-color: #ae7c3a;
 }
+
 /* تم آبی */
 [data-theme="blue"] {
     --primary-dark: #0f4c75;
@@ -34,6 +36,7 @@
     --text-highlight: #0a2c43;
     --border-color: #086bad;
 }
+
 /* تم قرمز */
 [data-theme="red"] {
     --primary-dark: #7a0000;
@@ -46,6 +49,7 @@
     --text-highlight: #610a0a;
     --border-color: #c93434;
 }
+
 /* تم سبز */
 [data-theme="green"] {
     --primary-dark: #0a4d2e;
@@ -58,6 +62,7 @@
     --text-highlight: #0d2a1c;
     --border-color: #278f5a;
 }
+
 /* تم فیروزه‌ای */
 [data-theme="teal"] {
     --primary-dark: #073946;
@@ -70,6 +75,7 @@
     --text-highlight: #062027;
     --border-color: #082e32;
 }
+
 /* کانتینر اختصاصی برای خروجی گرفتن بدون به‌هم‌ریختگی استایل و شفافیت */
 .invoice-export-container {
     position: fixed !important;
@@ -86,6 +92,7 @@
     background: #ffffff !important;
     pointer-events: none !important;
 }
+
 /* ==================== استایل‌های هدر فاکتور ==================== */
 .invoice-view {
     position: fixed;
@@ -104,6 +111,7 @@
     flex-direction: column;
     -webkit-overflow-scrolling: touch;
 }
+
 .invoice-top-header {
     background: linear-gradient(135deg, #0d2b43, #0f4c75) !important;
     padding: 30px 40px;
@@ -120,6 +128,7 @@
     text-align: right;
     box-sizing: border-box;
 }
+
 .invoice-page-title {
     margin: 0;
     font-size: 3.8rem;
@@ -128,17 +137,20 @@
     word-break: break-word;
     overflow-wrap: anywhere;
 }
+
 .invoice-header-buttons {
     display: flex;
     align-items: center;
     gap: 10px;
 }
+
 .invoice-btn {
     background: rgba(255, 255, 255, 0.15);
     color: #ffffff;
     border: none;
-    width: 85px;
+
     height: 85px;
+
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -147,14 +159,18 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: 0.2s;
 }
-.invoice-btn svg {
+
+.invoice-btn svg,
+.invoice-settings-btn svg {
     width: 55px;
     height: 55px;
 }
+
 .invoice-btn:hover {
     transform: scale(1.05);
     background: rgba(255, 255, 255, 0.25);
 }
+
 .invoice-settings-btn {
     display: flex;
     align-items: center;
@@ -162,16 +178,22 @@
     background: transparent;
     border: none;
     color: white;
-    font-size: 5rem; /* For desktop */
-    height: 85px; /* Match other buttons height */
+    font-size: 5rem;
+    /* For desktop */
+    height: 85px;
+
+    /* Match other buttons height */
     cursor: pointer;
     transition: transform 0.2s;
-    line-height: 1;
+    line-height: 0;
     padding: 0;
+    padding-top: 16px;
 }
+
 .invoice-settings-btn:hover {
     transform: scale(1.1);
 }
+
 /* ==================== استایل‌های بقیه بخش‌های فاکتور ==================== */
 .main-container {
     width: 100%;
@@ -179,26 +201,32 @@
     flex: 1;
     min-height: 0;
     margin: 0 auto;
-    margin-bottom: 90px; padding-bottom: 80px; /* Space for fixed bottom actions */
+    margin-bottom: 90px;
+    padding-bottom: 80px;
+    /* Space for fixed bottom actions */
     padding-bottom: 0;
     box-sizing: border-box;
     touch-action: none;
-    overflow: hidden; /* Prevents 950px card from breaking the page width */
+    overflow: hidden;
+    /* Prevents 950px card from breaking the page width */
     position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
+
 .invoice-zoom-wrapper {
     width: 100% !important;
     height: 100% !important;
     overflow: hidden !important;
     touch-action: none;
 }
+
 .invoice-zoom-content {
     width: max-content !important;
     height: max-content !important;
 }
+
 .invoice-card {
     padding: 24px;
     margin: 0 auto;
@@ -206,6 +234,7 @@
     min-width: 950px;
     box-sizing: border-box;
 }
+
 .invoice-inner {
     margin: 0 auto;
     width: 100%;
@@ -218,6 +247,7 @@
     flex-direction: column;
     box-sizing: border-box;
 }
+
 .header-title {
     text-align: center;
     border-bottom: 3px double var(--primary-light);
@@ -225,10 +255,12 @@
     padding-bottom: 0.5rem;
     position: relative;
     min-height: 85px;
+
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
+
 .header-title-center {
     display: flex;
     flex-direction: column;
@@ -236,6 +268,7 @@
     justify-content: center;
     width: 100%;
 }
+
 .header-logo-economic-left {
     position: absolute;
     left: 10px;
@@ -247,6 +280,7 @@
     gap: 4px;
     max-width: 200px;
 }
+
 .header-title h1 {
     text-align: center;
     font-size: 2rem;
@@ -255,6 +289,7 @@
     display: inline-block;
     cursor: pointer;
 }
+
 .invoice-type-select {
     font-size: 3rem;
     font-weight: 800;
@@ -267,20 +302,23 @@
     text-align: center;
     display: none;
 }
+
 .invoice-header-logo-wrapper {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     margin-bottom: 2px;
 }
+
 .invoice-header-logo {
     max-height: 60px;
     max-width: 170px;
     object-fit: contain;
     border-radius: 6px;
 }
+
 .seller-economic-code-badge {
-    font-size: 1rem;
+    font-size: 2.2rem;
     font-weight: 800;
     color: var(--text-highlight);
     background: var(--bg-box-light);
@@ -289,6 +327,7 @@
     border: 1px solid var(--border-color);
     white-space: nowrap;
 }
+
 .sub-brand {
     text-align: center;
     font-size: 2.1rem;
@@ -296,6 +335,7 @@
     color: var(--text-main);
     margin-top: -.8rem;
 }
+
 .invoice-meta {
     display: flex;
     justify-content: space-between;
@@ -308,6 +348,7 @@
     border-radius: 20px;
     border: 1px solid var(--border-color);
 }
+
 .meta-item {
     display: flex;
     align-items: baseline;
@@ -317,12 +358,14 @@
     padding: 1px 5px;
     border-radius: 40px;
 }
+
 .meta-label {
     font-size: 1.6rem;
     font-weight: 700;
     color: var(--text-highlight);
-    padding-right:  20px;
+    padding-right: 20px;
 }
+
 .editable-date-text,
 .editable-invno-text {
     font-size: 1.7rem;
@@ -335,6 +378,7 @@
     color: var(--text-highlight);
     display: inline-block;
 }
+
 .editable-invno-text {
     min-width: 130px;
     width: auto;
@@ -343,11 +387,13 @@
     unicode-bidi: isolate;
     text-align: center;
 }
+
 .editable-name-text:hover,
 .editable-address-text:hover,
 .editable-mobile-text:hover {
     background: var(--bg-box);
 }
+
 .name-edit-input-hidden,
 .date-edit-input-hidden,
 .invno-edit-input-hidden,
@@ -362,11 +408,13 @@
     background: #fff;
     width: auto;
 }
+
 .invno-edit-input-hidden {
     direction: ltr;
     text-align: center;
     min-width: 130px;
 }
+
 .editable-address-text,
 .editable-mobile-text {
     font-size: 1.7rem;
@@ -380,6 +428,7 @@
     display: inline-block;
     background: var(--bg-box-light);
 }
+
 .address-edit-input-hidden,
 .mobile-edit-input-hidden {
     font-size: 1.7rem;
@@ -393,6 +442,7 @@
     width: 600px;
     margin-top: -20px;
 }
+
 .invno-edit-input-hidden {
     font-size: 1.5rem;
     font-weight: 800;
@@ -404,14 +454,17 @@
     background: #fff;
     width: 100px;
 }
+
 .parties {
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
     margin-bottom: 0.5rem;
 }
+
 .buyer1-box {
     min-height: 85px;
+
     height: auto;
     display: flex;
     justify-content: center;
@@ -423,8 +476,10 @@
     padding: 8px;
     box-sizing: border-box;
 }
+
 .buyer-box {
     min-height: 85px;
+
     height: auto;
     flex: 2;
     background: var(--bg-box-light);
@@ -435,6 +490,7 @@
     align-items: flex-start;
     box-sizing: border-box;
 }
+
 .buyer-grid {
     width: 100%;
     display: flex;
@@ -442,6 +498,7 @@
     align-items: flex-end;
     gap: 15px;
 }
+
 .buyer-main-info {
     display: flex;
     flex-direction: column;
@@ -449,6 +506,7 @@
     text-align: right;
     flex: 1.2;
 }
+
 .buyer-main-info h2 {
     font-size: 1.4rem;
     font-weight: 800;
@@ -456,6 +514,7 @@
     margin: 0;
     padding: 0;
 }
+
 .buyer-extra-info {
     display: flex;
     flex-direction: row;
@@ -465,6 +524,7 @@
     justify-content: flex-end;
     flex: 1;
 }
+
 .buyer-info-text {
     font-size: 1.4rem;
     font-weight: 900;
@@ -472,11 +532,13 @@
     color: var(--text-highlight);
     margin: 0;
 }
+
 .buyer1-box h3 {
     font-size: 1.7rem;
     font-weight: 900;
     color: var(--text-highlight);
 }
+
 .editable-name-text {
     cursor: pointer;
     padding: 4px 8px;
@@ -487,21 +549,25 @@
     margin-bottom: 5px;
     color: var(--text-highlight);
 }
+
 .buyer-box h2 {
     font-size: 1.7rem;
     font-weight: 900;
     color: var(--text-highlight);
 }
+
 .buyer-details {
     padding-right: 15px;
 }
+
 .buyer-details p {
     font-size: 1.7rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 0;
     color: var(--text-highlight);
     margin-bottom: 8px;
 }
+
 /* ==================== جدول اقلام ==================== */
 .items-table {
     width: 100%;
@@ -510,6 +576,7 @@
     font-weight: 900;
     table-layout: fixed;
 }
+
 .items-table th,
 .items-table td {
     border: 1.2px solid var(--border-color);
@@ -517,43 +584,51 @@
     vertical-align: middle;
     word-break: break-word;
 }
+
 .items-table th:nth-child(1),
 .items-table td:nth-child(1) {
     width: 10%;
     text-align: center;
 }
+
 .items-table th:nth-child(2),
 .items-table td:nth-child(2) {
     width: 40%;
     text-align: right;
 }
+
 .items-table th:nth-child(3),
 .items-table td:nth-child(3) {
     width: 11%;
     text-align: center;
 }
+
 .items-table th:nth-child(4),
 .items-table td:nth-child(4) {
     width: 17%;
     text-align: left;
 }
+
 .items-table th:nth-child(5),
 .items-table td:nth-child(5) {
     width: 22%;
     text-align: left;
 }
+
 .items-table th {
     background-color: var(--bg-box);
     font-weight: 900;
     color: var(--text-highlight);
     direction: rtl;
 }
+
 .items-table td {
     background-color: rgba(255, 255, 255, 0.75);
     color: #2d2a24;
     font-size: 1.5rem;
     padding: 6px;
 }
+
 .items-table input {
     width: 95%;
     padding: 5px;
@@ -565,11 +640,13 @@
     background: var(--bg-main);
     font-weight: 700;
 }
+
 .items-table input:focus {
     outline: none;
     border-color: var(--primary-dark);
     background: #fff;
 }
+
 .total-final {
     width: 70%;
     background: var(--bg-box);
@@ -584,11 +661,13 @@
     display: flex;
     justify-content: space-between;
 }
+
 .total-final strong {
     font-size: 1.7rem;
     font-weight: 900;
     color: var(--text-highlight);
 }
+
 .total-amount {
     font-size: 1.7rem;
     font-weight: 800;
@@ -597,6 +676,7 @@
     display: inline-block;
     margin-left: 20px;
 }
+
 .amount-in-words {
     background: var(--bg-box-light);
     padding: 14px 38px;
@@ -608,6 +688,7 @@
     border: 1px solid var(--border-color);
     font-weight: 800;
 }
+
 .note-box {
     background: var(--bg-box-light);
     padding: 14px 18px;
@@ -620,6 +701,7 @@
     font-weight: 800;
     cursor: pointer;
 }
+
 .note-box p {
     border-radius: 20px;
     font-size: 1.5rem;
@@ -627,6 +709,7 @@
     line-height: 1.5;
     font-weight: 700;
 }
+
 .note-edit-input {
     width: 100%;
     padding: 12px;
@@ -639,10 +722,12 @@
     display: none;
     margin-top: 8px;
 }
+
 #note-text-display {
     white-space: pre-wrap;
     line-height: 1.8;
 }
+
 .app-footer {
     display: flex;
     flex-direction: column;
@@ -658,6 +743,7 @@
     gap: 8px;
     width: 100%;
 }
+
 .footer-app-name {
     font-weight: 800;
     font-size: 1.5rem;
@@ -668,6 +754,7 @@
     color: var(--text-highlight);
     border: 1px solid var(--border-color);
 }
+
 .footer-address {
     font-size: 1.3rem;
     font-weight: 800;
@@ -678,6 +765,7 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .footer-phone {
     font-size: 1.8rem;
     font-weight: 900;
@@ -690,16 +778,19 @@
     gap: 6px;
     direction: ltr;
 }
+
 .footer-phone::before {
     font-size: 1rem;
     margin-left: 5px;
 }
+
 .footer-divider {
     width: 60%;
     height: 1px;
     background: repeating-linear-gradient(90deg, var(--primary-light), var(--primary-light) 8px, transparent 8px, transparent 16px);
     margin: 4px 0;
 }
+
 /* ==================== نوار ثابت پایین و دکمه‌ها ==================== */
 .invoice-bottom-bar {
     background: none;
@@ -715,6 +806,7 @@
     z-index: 1000;
     pointer-events: none;
 }
+
 .invoice-bottom-actions-card {
     pointer-events: auto;
     background: #ffffff !important;
@@ -731,6 +823,7 @@
     max-width: 480px;
     width: auto;
 }
+
 .save-ledger-btn {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
     color: #ffffff !important;
@@ -747,17 +840,21 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     white-space: nowrap;
 }
+
 .save-ledger-btn:disabled {
     opacity: 0.75;
     cursor: not-allowed;
 }
+
 .save-ledger-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
 }
+
 .save-ledger-btn:active {
     transform: translateY(0);
 }
+
 .btn-wrapper {
     display: flex;
     justify-content: space-between;
@@ -765,11 +862,13 @@
     width: 100%;
     max-width: 500px;
 }
+
 .btn-group {
     display: flex;
     gap: 12px;
     align-items: flex-start;
 }
+
 .action-btn {
     background: none;
     display: flex;
@@ -780,33 +879,40 @@
     transition: all 0.2s ease;
     border: none;
 }
+
 .btn-icon {
     width: 48px;
     height: 48px;
     object-fit: contain;
-    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.15));
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.15));
     transition: transform 0.2s ease;
 }
+
 .action-btn:hover .btn-icon {
     transform: scale(1.1);
 }
+
 .action-btn:active .btn-icon {
     transform: scale(0.95);
 }
+
 /* دکمه‌های آیکون‌دار (+ و -) که دوباره از متن استفاده می‌کنند */
 .icon-only-btn {
     width: 46px;
     flex: none;
     font-size: 1.5rem;
 }
+
 .action-btn:active {
     transform: scale(1.1);
 }
+
 .action-btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none !important;
 }
+
 /* ==================== استایل‌های فرم ورود اطلاعات فاکتور ==================== */
 .invoice-form-container {
     max-width: 800px;
@@ -816,6 +922,7 @@
     flex-direction: column;
     gap: 8px;
 }
+
 .invoice-form-card {
     background: linear-gradient(135deg, #0f4c75, #3282b8);
     border-radius: 22px;
@@ -828,6 +935,7 @@
     box-sizing: border-box;
     color: #ffffff;
 }
+
 .invoice-form-section-title {
     margin: 0;
     font-size: 1.12rem;
@@ -838,27 +946,37 @@
     gap: 8px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding-bottom: 8px;
- border-bottom: none !important; padding-bottom: 0px !important; margin: 0px !important; }
+    border-bottom: none !important;
+    padding-bottom: 0px !important;
+    margin: 0px !important;
+}
+
 .invoice-form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
- margin-top: 12px !important;  margin-top: 12px !important; }
+    margin-top: 12px !important;
+    margin-top: 12px !important;
+}
+
 .invoice-form-grid-2-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
 }
+
 .invoice-field-group {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
+
 .invoice-field-label {
     font-size: 0.9rem;
     font-weight: 700;
     color: #ffffff;
 }
+
 .invoice-input-text,
 .invoice-input-select {
     width: 100%;
@@ -873,6 +991,7 @@
     transition: all 0.2s ease;
     box-sizing: border-box;
 }
+
 .invoice-input-select {
     appearance: none;
     -webkit-appearance: none;
@@ -883,18 +1002,21 @@
     padding-left: 36px;
     cursor: pointer;
 }
+
 .invoice-input-select option {
     background-color: #0d2b43 !important;
     color: #ffffff !important;
     font-weight: 600;
     padding: 10px 12px;
 }
+
 .invoice-input-select option:checked,
 .invoice-input-select option:hover,
 .invoice-input-select option:focus {
     background-color: #1a4e78 !important;
     color: #ffffff !important;
 }
+
 .invoice-input-text:focus,
 .invoice-input-textarea:focus {
     outline: none;
@@ -902,6 +1024,7 @@
     background-color: rgba(20, 58, 123, 0.35);
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
 }
+
 .invoice-input-select:focus {
     outline: none;
     border-color: #ffffff;
@@ -911,11 +1034,13 @@
     background-position: left 12px center;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
 }
+
 /* ==================== استایل‌های CustomSelect (کشو با استایل یکسان در موبایل و وب) ==================== */
 .custom-select-container {
     position: relative;
     width: 100%;
 }
+
 .custom-select-trigger {
     width: 100%;
     padding: 10px 14px;
@@ -936,6 +1061,7 @@
     box-sizing: border-box;
     position: relative;
 }
+
 .custom-select-trigger:focus,
 .custom-select-trigger.is-open {
     outline: none;
@@ -943,6 +1069,7 @@
     background: rgba(20, 58, 123, 0.5);
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
 }
+
 .custom-select-label {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -951,6 +1078,7 @@
     flex: 1;
     color: #ffffff;
 }
+
 .custom-select-arrow {
     position: absolute;
     left: 12px;
@@ -962,9 +1090,11 @@
     justify-content: center;
     pointer-events: none;
 }
+
 .custom-select-arrow.is-rotated {
     transform: translateY(-50%) rotate(180deg);
 }
+
 .custom-select-dropdown {
     position: absolute;
     top: calc(100% + 6px);
@@ -982,12 +1112,14 @@
     direction: rtl;
     -webkit-overflow-scrolling: touch;
 }
+
 .custom-select-empty {
     padding: 12px;
     color: rgba(255, 255, 255, 0.6);
     text-align: center;
     font-size: 0.9rem;
 }
+
 .custom-select-option {
     padding: 11px 14px;
     border-radius: 10px;
@@ -1004,27 +1136,33 @@
     white-space: normal;
     border: 1px solid #a2c8e2;
 }
+
 .custom-select-option:last-child {
     margin-bottom: 0;
 }
+
 .custom-select-option:hover,
 .custom-select-option:active {
     background: rgba(255, 255, 255, 0.18);
 }
+
 .custom-select-option.is-selected {
     background: #10b981;
     font-weight: 800;
 }
+
 .option-checkmark {
     font-size: 1rem;
     font-weight: bold;
     margin-right: 8px;
 }
+
 .invoice-input-text::placeholder,
 .invoice-input-textarea::placeholder {
     color: rgba(255, 255, 255, 0.45);
     font-weight: 500;
 }
+
 .invoice-input-textarea {
     width: 100%;
     padding: 12px 14px;
@@ -1042,6 +1180,7 @@
     box-sizing: border-box;
     transition: border-color 0.2s ease, background 0.2s ease;
 }
+
 .invoice-checkbox-group {
     margin-top: 4px;
     background: rgba(255, 255, 255, 0.12);
@@ -1049,6 +1188,7 @@
     border-radius: 12px;
     border: 1px dashed rgba(255, 255, 255, 0.4);
 }
+
 .invoice-checkbox-label {
     display: flex;
     align-items: flex-start;
@@ -1058,12 +1198,14 @@
     font-weight: 700;
     color: #ffffff;
 }
+
 .invoice-checkbox-label input[type="checkbox"] {
     width: 18px;
     height: 18px;
     accent-color: #10b981;
     cursor: pointer;
 }
+
 .invoice-form-section-header {
     display: flex;
     justify-content: space-between;
@@ -1073,6 +1215,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding-bottom: 8px;
 }
+
 .invoice-add-row-btn {
     background: linear-gradient(135deg, #10b981, #059669);
     color: #ffffff;
@@ -1085,18 +1228,22 @@
     box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3);
     transition: all 0.2s ease;
 }
+
 .invoice-add-row-btn:active {
     transform: scale(0.97);
 }
+
 .invoice-add-row-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
 .invoice-form-items-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+
 .invoice-form-item-row {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgb(40, 227, 30);
@@ -1107,6 +1254,7 @@
     gap: 10px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
 }
+
 .item-row-top-bar {
     display: flex;
     justify-content: space-between;
@@ -1115,6 +1263,7 @@
     padding-bottom: 8px;
     width: 100%;
 }
+
 .item-row-badge {
     background: rgba(255, 255, 255, 0.2);
     color: #ffffff;
@@ -1126,6 +1275,7 @@
     align-items: flex-start;
     gap: 4px;
 }
+
 .item-row-delete-btn {
     background: #ef4444;
     color: #ffffff;
@@ -1141,14 +1291,17 @@
     box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4);
     transition: all 0.2s ease;
 }
+
 .item-row-delete-btn:hover {
     background: #dc2626;
     box-shadow: 0 4px 12px rgba(220, 38, 38, 0.5);
     transform: translateY(-1px);
 }
+
 .item-row-delete-btn:active {
     transform: scale(0.96);
 }
+
 .item-row-fields {
     width: 100%;
     display: grid;
@@ -1156,6 +1309,7 @@
     gap: 8px;
     align-items: flex-start;
 }
+
 .item-label-sm {
     font-size: 0.78rem;
     font-weight: 700;
@@ -1163,6 +1317,7 @@
     margin-bottom: 3px;
     display: block;
 }
+
 .item-total-val {
     padding: 10px 12px;
     background: rgba(13, 43, 67, 0.45);
@@ -1174,6 +1329,7 @@
     text-align: left;
     direction: ltr;
 }
+
 .invoice-form-total-summary {
     background: rgba(13, 43, 67, 0.5);
     border: 1.5px solid #a2c8e2;
@@ -1185,11 +1341,13 @@
     gap: 6px;
     margin-top: 4px;
 }
+
 .summary-title {
     font-size: 0.98rem;
     font-weight: 800;
     color: #ffffff;
 }
+
 .summary-amount {
     font-size: 1.25rem;
     font-weight: 900;
@@ -1202,11 +1360,13 @@
     justify-content: flex-start;
     direction: ltr;
 }
+
 .summary-amount .currency {
     font-size: 0.88rem;
     font-weight: 700;
     color: #e0f2fe;
 }
+
 .invoice-form-words-summary {
     text-align: center;
     font-size: 0.9rem;
@@ -1217,6 +1377,7 @@
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .invoice-form-actions {
     position: fixed;
     bottom: 0;
@@ -1234,6 +1395,7 @@
     z-index: 1000;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
 }
+
 .invoice-preview-submit-btn {
     width: 60px;
     height: 60px;
@@ -1260,21 +1422,26 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+
 .invoice-preview-submit-btn:hover {
     transform: translateY(-2px);
 }
+
 .invoice-preview-submit-btn:active {
     transform: translateY(2px);
 }
+
 @media (max-width: 768px) {
     .invoice-form-grid-2 {
         grid-template-columns: 1fr;
     }
+
     .item-row-fields {
         grid-template-columns: 1fr;
         gap: 8px;
     }
 }
+
 /* ==================== ریسپانسیو هدر فاکتور ==================== */
 @media (max-width: 768px) {
     .invoice-top-header {
@@ -1286,25 +1453,33 @@
         border-radius: 0 0 20px 20px;
         box-sizing: border-box;
     }
+
     .invoice-page-title {
         font-size: 1.2rem;
         line-height: 1.35;
         word-break: break-word;
         overflow-wrap: anywhere;
     }
+
     .invoice-btn {
-        width: 38px;
-        height: 38px;
+        width: 45px;
+        height: 45px;
     }
-    .invoice-btn svg {
+
+    .invoice-btn svg,
+    .invoice-settings-btn svg {
         width: 25px;
         height: 25px;
     }
-        .invoice-settings-btn {
+
+    .invoice-settings-btn {
         font-size: 2.2rem;
         height: 45px;
+        width: 45px;
+        padding-top: 8px;
     }
 }
+
 /* ==================== استایل ورودی تاریخ و دکمه تقویم شمسی ==================== */
 .invoice-input-relative {
     position: relative;
@@ -1312,10 +1487,14 @@
     align-items: center;
     width: 100%;
 }
+
 .invoice-input-relative .invoice-input-text {
     width: 100%;
     padding-left: 50px;
- direction: ltr !important; text-align: center !important; }
+    direction: ltr !important;
+    text-align: center !important;
+}
+
 .invoice-calendar-trigger-btn {
     position: absolute;
     left: 8px;
@@ -1333,14 +1512,17 @@
     cursor: pointer;
     transition: all 0.2s ease;
 }
+
 .invoice-calendar-trigger-btn:hover {
     background: #1b6ca8;
     transform: translateY(-50%) scale(1.05);
 }
+
 .invoice-calendar-trigger-btn svg {
     width: 20px;
     height: 20px;
 }
+
 /* ==================== اعلان متحرک (Toast Notification) ==================== */
 .invoice-toast-notification {
     position: fixed;
@@ -1364,63 +1546,99 @@
     pointer-events: none;
     direction: rtl;
 }
+
 .invoice-toast-notification.show {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
 }
+
 .invoice-toast-notification .toast-icon {
     font-size: 1.2rem;
 }
+
 /* ==================== Native CSS Animations ==================== */
 @keyframes invoiceFormEntry {
     0% {
         opacity: 0;
         transform: scale(0.5);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
     }
 }
+
 @keyframes invoicePreviewEntry {
     0% {
         opacity: 0;
         transform: scale(0.92) translateY(20px);
     }
+
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
     }
 }
+
 @keyframes invoiceBottomBarEntry {
     0% {
         opacity: 0;
         transform: translateY(40px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 .invoice-form-container {
     animation: invoiceFormEntry 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
 .main-container {
     animation: invoicePreviewEntry 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
 .invoice-bottom-bar {
-    opacity: 0; /* starts hidden until animation starts */
+    opacity: 0;
+    /* starts hidden until animation starts */
     animation: invoiceBottomBarEntry 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     animation-delay: 0.2s;
 }
 
-.invoice-td-center { text-align: center; }
-.invoice-td-right { text-align: right; }
-.invoice-td-left-ltr { text-align: left; direction: ltr; }
-.invoice-td-left-ltr-bold { text-align: left; direction: ltr; font-weight: bold; }
-.invoice-sum-val { font-size: 1.4rem; margin-left: 10px; }
-.invoice-desc-text { font-size: 1.4rem; line-height: 1.8; white-space: pre-wrap; color: var(--text-main); }
+.invoice-td-center {
+    text-align: center;
+}
+
+.invoice-td-right {
+    text-align: right;
+}
+
+.invoice-td-left-ltr {
+    text-align: left;
+    direction: ltr;
+}
+
+.invoice-td-left-ltr-bold {
+    text-align: left;
+    direction: ltr;
+    font-weight: bold;
+}
+
+.invoice-sum-val {
+    font-size: 1.4rem;
+    margin-left: 10px;
+}
+
+.invoice-desc-text {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    color: var(--text-main);
+}
 
 /* ==================== Alert Modal ==================== */
 .invoice-success-modal-overlay {
@@ -1489,14 +1707,27 @@
 }
 
 @keyframes popIn {
-    0% { opacity: 0; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1); }
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .spinning-icon {
     animation: invoiceSpinner 1s linear infinite;
 }
+
 @keyframes invoiceSpinner {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }

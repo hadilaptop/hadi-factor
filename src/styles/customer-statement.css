@@ -688,14 +688,9 @@
   padding: 10px 24px 0px 24px;
 }
 
-.custom-alert-overlay {
-  display: flex;
-}
 
-.custom-alert-box {
-  max-width: 350px;
-  padding: 25px;
-}
+
+
 
 @media (max-width: 768px) {
   .statement-action-bar-old {
@@ -772,3 +767,5 @@
     padding: 10px 14px 0px 14px !important;
   }
 }
+.custom-alert-overlay { display: flex; }
+.custom-alert-box { max-width: 350px; padding: 25px; }

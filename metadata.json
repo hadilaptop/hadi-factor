@@ -1,0 +1,6 @@
+{
+  "name": "factorvite",
+  "description": "سیستم مدیریت فاکتور با قابلیت ذخیره و خروجی فاکتورها",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
