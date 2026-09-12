@@ -1127,13 +1127,13 @@
   }
 
   .ledger-header-btn {
-    width: 45px;
-    height: 45px;
+        width: 38px;
+        height: 38px;
   }
 
   .ledger-header-btn svg {
-    width: 25px;
-    height: 25px;
+        width: 22px;
+        height: 22px;
   }
 
   .ledger-container {
@@ -1237,8 +1237,8 @@
 
 /* استایل عکس جایگزین شده در هدر */
 .ledger-header-btn .custom-money-icon {
-  width: 85px;
-  height: 85px;
+        width: 85px;
+        height: 85px;
   object-fit: contain;
   /* این فیلتر باعث می‌شود خطوط مشکی عکس به رنگ سفید در بیایند تا با بقیه آیکون‌ها هماهنگ شود */
   filter: invert(1) brightness(100);
@@ -1246,8 +1246,8 @@
 
 @media (max-width: 900px) {
   .ledger-header-btn .custom-money-icon {
-    width: 45px;
-    height: 45px;
+        width: 38px;
+        height: 38px;
   }
 }
 
