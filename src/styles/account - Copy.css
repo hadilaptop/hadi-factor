@@ -92,7 +92,7 @@
     border: none;
     width: 85px;
     height: 85px;
-    border-radius: 50%;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -217,7 +217,7 @@
     margin: 0 auto;
     width: fit-content;
     padding: 18px;
-    border-radius: 50%;
+    border-radius: 12px;
 }
 
 .custom-alert-title {
@@ -284,7 +284,7 @@
     }
 
     .custom-alert-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         margin-bottom: 15px;
     }
 
@@ -337,8 +337,8 @@
     align-items: center;
     width: 150px;
     height: 150px;
-    border: 1.5px dashed #a2c8e2;
-    border-radius: 15px;
+    border: 2px dashed #a2c8e2;
+    border-radius: 12px;
     background: rgba(255, 255, 255, 0.05);
     color: #b3d4e6;
     cursor: pointer;
@@ -404,44 +404,39 @@
     }
 
     .account-form-card {
-        padding: 10px 15px;
+        padding: 20px 15px;
         border-radius: 20px;
-        margin-top: 0px;
+        margin-top: 5px;
     }
 
     .account-input-group {
-        padding: 8px 5px;
+        padding: 10px 5px;
     }
 
     .account-input-group label {
-        margin-bottom: 8px;
-        font-weight: 700;
-        font-size: 0.9rem;
-        padding:  10px;
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+        padding: 0 5px;
     }
 
-
-
     .account-input {
-        margin-top: 3px;
-        padding: 8px 15px;
-        font-size: 1.1rem;
+        padding: 12px 15px;
+        font-size: 1rem;
         border-radius: 12px;
     }
 
     .account-btn-save {
-        margin-bottom: 10px;
-        width: 80%;
-        font-size: 1rem;
-        padding: 8px;
-        border-radius: 10px;
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 12px;
+        border-radius: 15px;
         border-width: 1.5px;
     }
 
     .account-subtitle {
         font-size: 0.8rem;
     }
-    .profile-upload-group {
-    margin: 0px;
 }
-}
+
+.delete-profile-pic-btn { position: absolute; top: -5px; right: -5px; background: #ef4444; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: all 0.2s ease; z-index: 10; }
+.delete-profile-pic-btn:hover { background: #dc2626; transform: scale(1.1); }

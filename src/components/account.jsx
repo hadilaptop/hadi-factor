@@ -157,11 +157,19 @@ function Account({
             {/* بخش آپلود عکس پروفایل */}
             <div className="account-input-group profile-upload-group">
               <label>عکس پروفایل :</label>
-              <div className="profile-upload-wrapper">
+              <div className="profile-upload-wrapper" style={{ position: 'relative' }}>
                 <label htmlFor="custProfilePicInput" className="custom-file-upload">
                   {!profilePreview && <span id="upload-text-indicator">انتخاب فایل</span>}
                   {profilePreview && <img id="profile-preview-img" src={profilePreview} alt="Preview" className="account-profile-preview-img" />}
                 </label>
+                {profilePreview && (
+                  <button type="button" className="delete-profile-pic-btn" onClick={() => setProfilePreview(null)} title="حذف تصویر">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                )}
                 <input type="file" id="custProfilePicInput" className="hidden-file-input" accept="image/*" onChange={handleProfilePicChange} />
               </div>
             </div>

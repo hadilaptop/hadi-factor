@@ -1,12 +1,5 @@
 {
   "appId": "com.hadi.invoiceapp",
   "appName": "factorvite",
-  "webDir": "dist",
-  "plugins": {
-    "StatusBar": {
-      "backgroundColor": "#092d47",
-      "style": "DARK",
-      "overlaysWebView": false
-    }
-  }
+  "webDir": "dist"
 }
