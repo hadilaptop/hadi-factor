@@ -1,8 +1,7 @@
 buildscript {
     repositories {
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
-        maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://maven.aliyun.com/repository/public' }
+        google()
+        mavenCentral()
     }
     dependencies {
         // این خط ارتقا پیدا کرد تا خطاهای مربوط به متادیتا برطرف شود

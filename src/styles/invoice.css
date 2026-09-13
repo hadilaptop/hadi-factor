@@ -317,7 +317,7 @@
 }
 
 .seller-economic-code-badge {
-    font-size: 2.2rem;
+    font-size: 0.9rem;
     font-weight: 800;
     color: var(--text-highlight);
     background: var(--bg-box-light);
@@ -463,11 +463,10 @@
 
 .buyer1-box {
     min-height: 85px;
-
     height: auto;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     width: 120px;
     background: var(--bg-box);
     border-radius: 15px;
@@ -525,7 +524,7 @@
 }
 
 .buyer-info-text {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: 900;
     line-height: 1.4;
     color: var(--text-highlight);
@@ -533,7 +532,7 @@
 }
 
 .buyer1-box h3 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 900;
     color: var(--text-highlight);
 }
@@ -550,7 +549,7 @@
 }
 
 .buyer-box h2 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 900;
     color: var(--text-highlight);
 }
@@ -586,25 +585,25 @@
 
 .items-table th:nth-child(1),
 .items-table td:nth-child(1) {
-    width: 10%;
+    width: 8%;
     text-align: center;
 }
 
 .items-table th:nth-child(2),
 .items-table td:nth-child(2) {
-    width: 30%;
+    width: 29%;
     text-align: right;
 }
 
 .items-table th:nth-child(3),
 .items-table td:nth-child(3) {
-    width: 11%;
+    width: 13%;
     text-align: center;
 }
 
 .items-table th:nth-child(4),
 .items-table td:nth-child(4) {
-    width: 21%;
+    width: 22%;
     text-align: left;
 }
 
