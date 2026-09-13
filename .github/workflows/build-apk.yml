@@ -34,26 +34,23 @@ jobs:
       - name: Make Gradle Executable
         run: chmod +x android/gradlew
 
-      # تغییر اول: بیلد گرفتن در حالت Release به جای Debug
-      - name: Build APK (Release)
+      # مرحله جدید: تبدیل متن Base64 به فایل اصلی Keystore در یک مسیر موقت
+      - name: Decode Keystore File
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > /tmp/release.keystore
+
+      # ساخت خروجی و امضای همزمان آن توسط خود هسته اندروید
+      - name: Build and Sign APK (Release)
         run: |
           cd android
-          ./gradlew assembleRelease
+          ./gradlew assembleRelease \
+            -Pandroid.injected.signing.store.file=/tmp/release.keystore \
+            -Pandroid.injected.signing.store.password="${{ secrets.KEYSTORE_PASSWORD }}" \
+            -Pandroid.injected.signing.key.alias="${{ secrets.KEY_ALIAS }}" \
+            -Pandroid.injected.signing.key.password="${{ secrets.KEY_PASSWORD }}"
 
-      # تغییر دوم: اضافه شدن مرحله امضای دیجیتال
-      - name: Sign APK
-        uses: r0adkll/sign-android-release@v1
-        id: sign_app
-        with:
-          releaseDirectory: android/app/build/outputs/apk/release
-          signingKeyBase64: ${{ secrets.KEYSTORE_BASE64 }}
-          alias: ${{ secrets.KEY_ALIAS }}
-          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
-          keyPassword: ${{ secrets.KEY_PASSWORD }}
-          buildToolsVersion: 34.0.0
-      # تغییر سوم: آپلود کردن فایل امضاشده نهایی
+      # آپلود فایل نهایی امضاشده
       - name: Upload Signed APK
         uses: actions/upload-artifact@v4
         with:
           name: hadi-factor-apk
-          path: ${{steps.sign_app.outputs.signedReleaseFile}}
+          path: android/app/build/outputs/apk/release/*.apk
