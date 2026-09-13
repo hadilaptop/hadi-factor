@@ -50,7 +50,7 @@ jobs:
           alias: ${{ secrets.KEY_ALIAS }}
           keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
-
+          buildToolsVersion: 34.0.0
       # تغییر سوم: آپلود کردن فایل امضاشده نهایی
       - name: Upload Signed APK
         uses: actions/upload-artifact@v4
