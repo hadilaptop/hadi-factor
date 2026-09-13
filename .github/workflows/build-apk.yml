@@ -34,13 +34,26 @@ jobs:
       - name: Make Gradle Executable
         run: chmod +x android/gradlew
 
-      - name: Build APK (Debug)
+      # تغییر اول: بیلد گرفتن در حالت Release به جای Debug
+      - name: Build APK (Release)
         run: |
           cd android
-          ./gradlew assembleDebug
+          ./gradlew assembleRelease
 
-      - name: Upload APK
+      # تغییر دوم: اضافه شدن مرحله امضای دیجیتال
+      - name: Sign APK
+        uses: r0adkll/sign-android-release@v1
+        id: sign_app
+        with:
+          releaseDirectory: android/app/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.KEYSTORE_BASE64 }}
+          alias: ${{ secrets.KEY_ALIAS }}
+          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      # تغییر سوم: آپلود کردن فایل امضاشده نهایی
+      - name: Upload Signed APK
         uses: actions/upload-artifact@v4
         with:
           name: hadi-factor-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: ${{steps.sign_app.outputs.signedReleaseFile}}
