@@ -100,6 +100,10 @@ export default function App() {
           onNavigate={handleNavigate}
           customerCount={customers.length}
           isInitialized={isInitialized}
+          onOpenNewAccountPage={() => {
+            setCustomerToEdit(null);
+            handleNavigate("account");
+          }}
         />
       )}
       {currentPage === "customers" && (

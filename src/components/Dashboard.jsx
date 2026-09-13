@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "../styles/dashboard.css";
 
-function Dashboard({ onNavigate, customerCount = 0, isInitialized = false }) {
+function Dashboard({ onNavigate, customerCount = 0, isInitialized = false, onOpenNewAccountPage }) {
   const [currentDate] = useState(() => {
     const today = new Date();
     const weekday = new Intl.DateTimeFormat("fa-IR", {
@@ -24,7 +24,7 @@ function Dashboard({ onNavigate, customerCount = 0, isInitialized = false }) {
   // هندلر دکمه حساب جدید
   const handleNewAccountClick = () => {
     sessionStorage.setItem("accountReferrer", "dashboard");
-    onNavigate("account");
+    onOpenNewAccountPage();
   };
 
   return (
