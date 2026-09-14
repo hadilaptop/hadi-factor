@@ -929,16 +929,16 @@
     border: 1px solid #a2c8e2;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 5px;
     box-sizing: border-box;
     color: #ffffff;
 }
 
 .invoice-form-section-title {
-    margin: 0;
-    font-size: 1.12rem;
-    font-weight: 800;
+    font-size: 0.9rem;
+    font-weight: 700;
     color: #ffffff;
+    padding: 0 10px;
     display: flex;
     align-items: flex-start;
     gap: 8px;
@@ -973,6 +973,7 @@
     font-size: 0.9rem;
     font-weight: 700;
     color: #ffffff;
+    padding: 0 10px;
 }
 
 .invoice-input-text,
@@ -1309,11 +1310,10 @@
 }
 
 .item-label-sm {
-    font-size: 0.78rem;
+    font-size: 0.9rem;
     font-weight: 700;
-    color: #e0f2fe;
-    margin-bottom: 3px;
-    display: block;
+    color: #ffffff;
+    padding: 0 10px;
 }
 
 .item-total-val {
