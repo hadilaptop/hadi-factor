@@ -591,6 +591,7 @@
 
 .items-table th:nth-child(2),
 .items-table td:nth-child(2) {
+    font-size: 1.2rem;
     width: 29%;
     text-align: right;
 }
@@ -623,7 +624,7 @@
 .items-table td {
     background-color: rgba(255, 255, 255, 0.75);
     color: #2d2a24;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     padding: 6px;
 }
 
