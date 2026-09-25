@@ -1,0 +1,117 @@
+.bottom-nav-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #123c5e, #135d8e);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 6px 0px;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom, 15px));
+    border-radius: 25px 25px 0 0;
+    z-index: 9999999;
+    direction: ltr;
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    gap: 3px;
+    cursor: pointer;
+    padding-top: 2px;
+    flex: 1;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.bottom-nav-item:focus,
+.bottom-nav-item:focus-visible {
+    outline: none;
+}
+
+/* آیکون دایره‌ای با استایل دکمه‌های اکشن */
+.bottom-nav-icon-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    padding: 0;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bottom-nav-icon-circle svg {
+    width: 20px;
+    height: 20px;
+    stroke: #ffffff;
+    fill: none;
+}
+
+/* رنگ آبی - استایل گرادینت دکمه‌های پیش‌نمایش و تنظیمات */
+.nav-circle-blue,
+.nav-circle-green {
+    background: linear-gradient(180deg, #3a95d2, #146ca7);
+    box-shadow: 0 4px 10px rgba(15, 76, 117, 0.4);
+}
+
+/* حالت غیرفعال */
+.bottom-nav-item:not(.active) .bottom-nav-icon-circle {
+    opacity: 0.65;
+    transform: scale(1);
+}
+
+/* حالت هاور فقط برای موس/دسکتاپ بدون افکت پرش ناگهانی */
+@media (hover: hover) and (pointer: fine) {
+    .bottom-nav-item:not(.active):hover .bottom-nav-icon-circle {
+        opacity: 0.85;
+        transform: scale(1.04);
+    }
+}
+
+/* حالت فعال */
+.bottom-nav-item.active .bottom-nav-icon-circle {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+.bottom-nav-item.active .nav-circle-blue,
+.bottom-nav-item.active .nav-circle-green {
+    box-shadow: 0 5px 12px rgba(15, 76, 117, 0.5);
+}
+
+.bottom-nav-item.active span {
+    color: #ffffff;
+    font-weight: 800;
+    opacity: 1;
+}
+
+.bottom-nav-item:active .bottom-nav-icon-circle {
+    transform: scale(0.95);
+}
+
+.bottom-nav-item span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: inherit;
+    line-height: 1.2;
+    transition: opacity 0.2s ease, font-weight 0.2s ease;
+    opacity: 0.8;
+}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
