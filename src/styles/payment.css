@@ -260,7 +260,7 @@
 }
 .jalali-picker-header h3 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: #ffffff;
 }
@@ -296,7 +296,7 @@
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 5px;
-  max-height: 320px;
+  max-height: 300px;
   overflow-y: auto;
   padding-left: 4px;
 }
